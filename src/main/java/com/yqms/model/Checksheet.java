@@ -2,6 +2,7 @@ package com.yqms.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -57,14 +58,16 @@ public class Checksheet {
 	private Long a_punchlist_outstanding;
 	private String turnover_group;
 	private String contractor;
-	private String scanned_at;
+	private Date scanned_at;
 	private Long man_hours;
 	private String scanned_by;
 	private String prim_drawing;
 	private Boolean electronic;
 	private String duration_days;
 	private Boolean requires_2_step_completion;
-	private String group_col;
+	
+	@Column(name="group_col")
+	private String group;
 	private Boolean issued;
 	private Date issued_at;
 	private String issued_id;
@@ -347,10 +350,10 @@ public class Checksheet {
 	public void setContractor(String contractor) {
 		this.contractor = contractor;
 	}
-	public String getScanned_at() {
+	public Date getScanned_at() {
 		return scanned_at;
 	}
-	public void setScanned_at(String scanned_at) {
+	public void setScanned_at(Date scanned_at) {
 		this.scanned_at = scanned_at;
 	}
 	public Long getMan_hours() {
@@ -390,10 +393,10 @@ public class Checksheet {
 		this.requires_2_step_completion = requires_2_step_completion;
 	}
 	public String getGroup() {
-		return group_col;
+		return group;
 	}
 	public void setGroup(String group_col) {
-		this.group_col = group_col;
+		this.group = group;
 	}
 	public Boolean getIssued() {
 		return issued;
