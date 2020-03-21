@@ -1,23 +1,26 @@
 package com.yqms.model;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "subsystem")
 public class SubSystem {
 
-	@Id
-	private Long id;
-	private String description;
+    @EmbeddedId
+    @JsonProperty("subSystem")
+    private SubSystemIdentity subSystemIdentity;
+	private String description;		
 
-	public Long getId() {
-		return id;
+	public SubSystemIdentity getSubSystemIdentity() {
+		return subSystemIdentity;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setSubSystemIdentity(SubSystemIdentity subSystemIdentity) {
+		this.subSystemIdentity = subSystemIdentity;
 	}
 
 	public String getDescription() {
@@ -26,6 +29,16 @@ public class SubSystem {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}	
+
+	public SubSystem() {
 	}
+
+	public SubSystem(SubSystemIdentity subSystemIdentity, String description) {
+		this.subSystemIdentity = subSystemIdentity;
+		this.description = description;
+	}
+	
+	
 
 }

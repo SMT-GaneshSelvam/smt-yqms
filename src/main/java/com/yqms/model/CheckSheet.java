@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="checksheet")
-public class Checksheet {
+public class CheckSheet {
 	
 	@Id
 	private Long fcr_id;

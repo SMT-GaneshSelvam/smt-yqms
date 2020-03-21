@@ -1,23 +1,28 @@
 package com.yqms.model;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "subtype")
 public class SubType {
 
-	@Id
-	private String id;
-	private String description;
+    @EmbeddedId
+    @JsonProperty("id")
+    private SubTypeIdentity subTypeIdentity;
+    
+	private String description;	
 
-	public String getId() {
-		return id;
+	public SubTypeIdentity getSubTypeIdentity() {
+		return subTypeIdentity;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setSubTypeIdentity(SubTypeIdentity subTypeIdentity) {
+		this.subTypeIdentity = subTypeIdentity;
 	}
 
 	public String getDescription() {

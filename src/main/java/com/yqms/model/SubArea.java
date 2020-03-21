@@ -1,23 +1,27 @@
 package com.yqms.model;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "subarea")
 public class SubArea {
 
-	@Id
-	private String id;
+    @EmbeddedId
+    @JsonProperty("id")
+    private SubAreaIdentity subAreaIdentity;
 	private String description;
 
-	public String getId() {
-		return id;
+	public SubAreaIdentity getSubAreaIdentity() {
+		return subAreaIdentity;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setSubAreaIdentity(SubAreaIdentity subAreaIdentity) {
+		this.subAreaIdentity = subAreaIdentity;
 	}
 
 	public String getDescription() {
