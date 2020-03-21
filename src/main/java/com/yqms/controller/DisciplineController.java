@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yqms.model.Checksheet;
-import com.yqms.service.ChecksheetService;
+import com.yqms.model.Discipline;
+import com.yqms.service.DisciplineService;
 
 @RestController
-@RequestMapping(value = "/checksheet")
-public class ChecksheetController {
+@RequestMapping(value = "/discipline")
+public class DisciplineController {
 	
 	@Autowired
-	private ChecksheetService checksheetService;
+	private DisciplineService disciplineService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<List<Checksheet>> getAllChecksheet() {
+	public ResponseEntity<List<Discipline>> getAllDisciplines() {
 		
-		List<Checksheet> checksheetList = checksheetService.getAllChecksheets();
-		return new ResponseEntity<>(checksheetList, HttpStatus.OK);
+		List<Discipline> disciplineList = disciplineService.getAllDisciplines();
+		return new ResponseEntity<>(disciplineList, HttpStatus.OK);
 		
 	}
 
