@@ -19,11 +19,8 @@ public class SubSystemServiceImpl implements SubSystemService {
 	SubSystemRepository subSystemRepository;
 
 	@Override
-	public List<SubSystem> getAllSubSystemsForSystem(String systemId) {
+	public List<SubSystem> getAllSubSystemsForSystem(List<String> systemList) {
 		
-		List<String> systemList =  new ArrayList<String>();		
-		systemList = Arrays.asList(systemId.split(","));	
-
 		List<SubSystem> subSystemList  = subSystemRepository.findBySubSystemIdentitySystemIdIn(systemList);	
 		return subSystemList;
 		
