@@ -6,6 +6,6 @@ import com.yqms.model.SubArea;
 
 public interface SubAreaService {	
 	
-	List<SubArea> getAllSubAreasForLocationAndArea(Long locationId, Long areaId);
+	List<SubArea> getAllSubAreasForLocationAndArea(List<Long> locationList, List<Long> areaList);
 
 }

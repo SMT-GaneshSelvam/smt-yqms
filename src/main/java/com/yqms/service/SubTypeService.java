@@ -6,6 +6,6 @@ import com.yqms.model.SubType;
 
 public interface SubTypeService {	
 	
-	List<SubType> getAllSubTypesForType(String typeId);
+	List<SubType> getAllSubTypesForType(List<String> typeList);
 
 }

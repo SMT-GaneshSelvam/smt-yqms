@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yqms.model.SubSystem;
@@ -20,10 +21,10 @@ public class SubSystemController {
 	@Autowired
 	private SubSystemService subSystemService;
 	
-	@RequestMapping(value = "/{systemId}", method = RequestMethod.GET)
-	public ResponseEntity<List<SubSystem>> getAllSubSystemsForSystem(@PathVariable("systemId") String systemId) {
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<List<SubSystem>> getAllSubSystemsForSystem(@RequestParam List<String> systemList) {
 				
-		List<SubSystem> subSystemList = subSystemService.getAllSubSystemsForSystem(systemId);
+		List<SubSystem> subSystemList = subSystemService.getAllSubSystemsForSystem(systemList);
 		return new ResponseEntity<>(subSystemList, HttpStatus.OK);
 		
 	}

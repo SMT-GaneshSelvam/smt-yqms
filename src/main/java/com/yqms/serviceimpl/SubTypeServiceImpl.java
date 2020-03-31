@@ -17,9 +17,9 @@ public class SubTypeServiceImpl implements SubTypeService {
 	SubTypeRepository subTypeRepository;
 
 	@Override
-	public List<SubType> getAllSubTypesForType(String typeId) {
+	public List<SubType> getAllSubTypesForType(List<String> typeList) {
 
-		List<SubType> subTypeList  = subTypeRepository.findBySubTypeIdentityTypeId(typeId);	
+		List<SubType> subTypeList  = subTypeRepository.findBySubTypeIdentityTypeIdIn(typeList);	
 		return subTypeList;
 		
 	}

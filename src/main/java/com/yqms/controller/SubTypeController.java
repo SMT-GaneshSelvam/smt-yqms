@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yqms.model.SubType;
@@ -20,10 +21,10 @@ public class SubTypeController {
 	@Autowired
 	private SubTypeService subTypeService;
 	
-	@RequestMapping(value = "/{typeId}", method = RequestMethod.GET)
-	public ResponseEntity<List<SubType>> getAllSubTypesForType(@PathVariable("typeId") String typeId) {
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public ResponseEntity<List<SubType>> getAllSubTypesForType(@RequestParam List<String> typeList) {
 				
-		List<SubType> subTypeList = subTypeService.getAllSubTypesForType(typeId);
+		List<SubType> subTypeList = subTypeService.getAllSubTypesForType(typeList);
 		return new ResponseEntity<>(subTypeList, HttpStatus.OK);
 		
 	}
