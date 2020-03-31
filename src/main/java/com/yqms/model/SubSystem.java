@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubSystem {
 
     @EmbeddedId
-    @JsonProperty("subSystem")
+    @JsonProperty("id")
     private SubSystemIdentity subSystemIdentity;
 	private String description;		
 

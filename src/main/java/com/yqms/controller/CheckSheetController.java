@@ -24,7 +24,7 @@ public class CheckSheetController {
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<List<CheckSheet>> getAllChecksheets(@RequestBody CheckSheetFilter checkSheetFilter) {
 		
-		System.out.println("SMT" + checkSheetFilter.getSystem().get(0));
+		//System.out.println("SMT" + checkSheetFilter.getSystem().get(0));
 		
 		List<CheckSheet> checkSheetList = checkSheetService.getAllCheckSheets(checkSheetFilter);
 		return new ResponseEntity<>(checkSheetList, HttpStatus.OK);
