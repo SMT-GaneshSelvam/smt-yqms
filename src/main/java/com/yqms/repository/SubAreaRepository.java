@@ -9,6 +9,6 @@ import com.yqms.model.SubAreaIdentity;
 
 public interface SubAreaRepository extends JpaRepository<SubArea, SubAreaIdentity> {
 	
-	List<SubArea> findBySubAreaIdentityLocationIdInAndSubAreaIdentityAreaIdIn(List<Long> locationList,List<Long> areaList);
+	List<SubArea> findBySubAreaIdentityLocationIdInAndSubAreaIdentityAreaIdIn(List<String> locationList,List<String> areaList);
 
 }

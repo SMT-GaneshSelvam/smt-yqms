@@ -11,44 +11,44 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class SubAreaIdentity implements Serializable  {
 
 	@JsonIgnore
-	private Long locationId;
+	private String locationId;
 	
 	@JsonIgnore
-	private Long areaId;
+	private String areaId;
 	
 	@JsonValue
-	private Long subAreaId;
+	private String subAreaId;
 
 	public SubAreaIdentity() {
 	}
 
-	public SubAreaIdentity(Long locationId, Long areaId, Long subAreaId) {
+	public SubAreaIdentity(String locationId, String areaId, String subAreaId) {
 		this.locationId = locationId;
 		this.areaId = areaId;
 		this.subAreaId = subAreaId;
 	}
 
-	public Long getLocationId() {
+	public String getLocationId() {
 		return locationId;
 	}
 
-	public void setLocationId(Long locationId) {
+	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
 
-	public Long getAreaId() {
+	public String getAreaId() {
 		return areaId;
 	}
 
-	public void setAreaId(Long areaId) {
+	public void setAreaId(String areaId) {
 		this.areaId = areaId;
 	}
 
-	public Long getSubAreaId() {
+	public String getSubAreaId() {
 		return subAreaId;
 	}
 
-	public void setSubAreaId(Long subAreaId) {
+	public void setSubAreaId(String subAreaId) {
 		this.subAreaId = subAreaId;
 	}
 
@@ -87,6 +87,6 @@ public class SubAreaIdentity implements Serializable  {
 		} else if (!subAreaId.equals(other.subAreaId))
 			return false;
 		return true;
-	}	
+	}
 
 }

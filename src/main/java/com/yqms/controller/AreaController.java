@@ -21,7 +21,7 @@ public class AreaController {
 	private AreaService areaService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<List<Area>> getAllAreas(@RequestParam List<Long> locationList) {
+	public ResponseEntity<List<Area>> getAllAreas(@RequestParam List<String> locationList) {
 				
 		List<Area> areaList = areaService.getAllAreasForLocation(locationList);
 		return new ResponseEntity<>(areaList, HttpStatus.OK);

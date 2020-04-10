@@ -11,32 +11,32 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class AreaIdentity implements Serializable  {
 
 	@JsonIgnore
-	private Long locationId;
+	private String locationId;
 	
 	@JsonValue
-	private Long areaId;
+	private String areaId;
 
 	public AreaIdentity() {
 	}
 
-	public AreaIdentity(Long locationId, Long areaId) {
+	public AreaIdentity(String locationId, String areaId) {
 		this.locationId = locationId;
 		this.areaId = areaId;
 	}
 
-	public Long getLocationId() {
+	public String getLocationId() {
 		return locationId;
 	}
 
-	public void setLocationId(Long locationId) {
+	public void setLocationId(String locationId) {
 		this.locationId = locationId;
 	}
 
-	public Long getAreaId() {
+	public String getAreaId() {
 		return areaId;
 	}
 
-	public void setAreaId(Long areaId) {
+	public void setAreaId(String areaId) {
 		this.areaId = areaId;
 	}
 
@@ -69,6 +69,6 @@ public class AreaIdentity implements Serializable  {
 		} else if (!locationId.equals(other.locationId))
 			return false;
 		return true;
-	}	
+	}
 
 }

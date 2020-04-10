@@ -6,6 +6,6 @@ import com.yqms.model.Area;
 
 public interface AreaService {	
 	
-	List<Area> getAllAreasForLocation(List<Long> locationList);
+	List<Area> getAllAreasForLocation(List<String> locationList);
 
 }

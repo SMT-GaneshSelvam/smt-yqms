@@ -22,7 +22,7 @@ public class SubAreaController {
 	private SubAreaService subAreaService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<List<SubArea>> getAllSubAreasForLocationAndArea(@RequestParam List<Long> locationList, @RequestParam List<Long> areaList) {
+	public ResponseEntity<List<SubArea>> getAllSubAreasForLocationAndArea(@RequestParam List<String> locationList, @RequestParam List<String> areaList) {
 				
 		List<SubArea> subAreaList = subAreaService.getAllSubAreasForLocationAndArea(locationList, areaList);
 		return new ResponseEntity<>(subAreaList, HttpStatus.OK);
