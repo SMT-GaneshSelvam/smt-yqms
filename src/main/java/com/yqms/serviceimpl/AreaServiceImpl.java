@@ -17,7 +17,7 @@ public class AreaServiceImpl implements AreaService {
 	AreaRepository areaRepository;
 
 	@Override
-	public List<Area> getAllAreasForLocation(List<Long> locationList) {
+	public List<Area> getAllAreasForLocation(List<String> locationList) {
 		
 		List<Area> areaList  = areaRepository.findByAreaIdentityLocationIdIn(locationList);	
 		return areaList;

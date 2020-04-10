@@ -17,7 +17,7 @@ public class SubAreaServiceImpl implements SubAreaService {
 	SubAreaRepository subAreaRepository;
 
 	@Override
-	public List<SubArea> getAllSubAreasForLocationAndArea(List<Long> locationList, List<Long> areaList) {
+	public List<SubArea> getAllSubAreasForLocationAndArea(List<String> locationList, List<String> areaList) {
 
 		List<SubArea> subAreaList  = subAreaRepository.findBySubAreaIdentityLocationIdInAndSubAreaIdentityAreaIdIn(locationList, areaList);	
 		return subAreaList;
