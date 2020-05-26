@@ -24,4 +24,16 @@ public class DisciplineServiceImpl implements DisciplineService {
 		
 	}
 
+	@Override
+	public Discipline addDiscipline(Discipline discipline) {
+		return disciplineRepository.save(discipline);		
+	}
+
+	@Override
+	public Discipline getDisciplineById(String id) {
+		return disciplineRepository.findById(id).get();
+	}
+	
+	
+
 }

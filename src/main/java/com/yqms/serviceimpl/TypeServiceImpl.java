@@ -24,4 +24,14 @@ public class TypeServiceImpl implements TypeService {
 		
 	}
 
+	@Override
+	public Type addType(Type type) {
+		return typeRepository.save(type);
+	}
+
+	@Override
+	public Type getTypeById(String id) {
+		return typeRepository.findById(id).get();
+	}
+
 }

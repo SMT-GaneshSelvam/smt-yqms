@@ -18,10 +18,20 @@ public class UnitServiceImpl implements UnitService {
 
 	@Override
 	public List<Unit> getAllUnits() {
-
 		List<Unit> unitList  = unitRepository.findAll();		
-		return unitList;
-		
+		return unitList;		
 	}
+
+	@Override
+	public Unit addUnit(Unit unit) {
+		return unitRepository.save(unit);
+	}
+
+	@Override
+	public Unit getUnitById(String id) {
+		return unitRepository.findById(id).get();
+	}
+	
+	
 
 }

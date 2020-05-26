@@ -7,5 +7,9 @@ import com.yqms.model.Location;
 public interface LocationService {	
 	
 	List<Location> getAllLocations();
+	
+	Location addLocation(Location location);
+	
+	Location getLocationById(String id);
 
 }
