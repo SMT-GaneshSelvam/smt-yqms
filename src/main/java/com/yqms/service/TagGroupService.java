@@ -7,5 +7,9 @@ import com.yqms.model.TagGroup;
 public interface TagGroupService {	
 	
 	List<TagGroup> getAllTagGroups();
+	
+	TagGroup addTagGroup(TagGroup tagGroup);
+	
+	TagGroup getTagGroupById(String id);
 
 }

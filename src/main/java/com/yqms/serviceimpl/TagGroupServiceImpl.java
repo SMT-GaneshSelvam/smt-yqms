@@ -24,4 +24,16 @@ public class TagGroupServiceImpl implements TagGroupService {
 		
 	}
 
+	@Override
+	public TagGroup addTagGroup(TagGroup tagGroup) {
+		return tagGroupRepository.save(tagGroup);
+	}
+
+	@Override
+	public TagGroup getTagGroupById(String id) {
+		return tagGroupRepository.findById(id).get();
+	}
+	
+	
+
 }
