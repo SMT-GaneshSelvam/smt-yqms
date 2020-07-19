@@ -7,45 +7,35 @@ import javax.persistence.Embeddable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Embeddable
 public class SubTypeIdentity implements Serializable  {
 
 	@JsonIgnore
-	private String typeId;
+	private String typeRef;
 	
 	@JsonValue
-	private String subTypeId;	
+	private String subtypeRef;	
 
 	public SubTypeIdentity() {
 	}
 
-	public SubTypeIdentity(String typeId, String subTypeId) {
-		this.typeId = typeId;
-		this.subTypeId = subTypeId;
-	}
-
-	public String getTypeId() {
-		return typeId;
-	}
-
-	public void setTypeId(String typeId) {
-		this.typeId = typeId;
-	}
-
-	public String getSubTypeId() {
-		return subTypeId;
-	}
-
-	public void setSubTypeId(String subTypeId) {
-		this.subTypeId = subTypeId;
+	public SubTypeIdentity(String typeRef, String subtypeRef) {
+		super();
+		this.typeRef = typeRef;
+		this.subtypeRef = subtypeRef;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((subTypeId == null) ? 0 : subTypeId.hashCode());
-		result = prime * result + ((typeId == null) ? 0 : typeId.hashCode());
+		result = prime * result + ((subtypeRef == null) ? 0 : subtypeRef.hashCode());
+		result = prime * result + ((typeRef == null) ? 0 : typeRef.hashCode());
 		return result;
 	}
 
@@ -58,17 +48,17 @@ public class SubTypeIdentity implements Serializable  {
 		if (getClass() != obj.getClass())
 			return false;
 		SubTypeIdentity other = (SubTypeIdentity) obj;
-		if (subTypeId == null) {
-			if (other.subTypeId != null)
+		if (subtypeRef == null) {
+			if (other.subtypeRef != null)
 				return false;
-		} else if (!subTypeId.equals(other.subTypeId))
+		} else if (!subtypeRef.equals(other.subtypeRef))
 			return false;
-		if (typeId == null) {
-			if (other.typeId != null)
+		if (typeRef == null) {
+			if (other.typeRef != null)
 				return false;
-		} else if (!typeId.equals(other.typeId))
+		} else if (!typeRef.equals(other.typeRef))
 			return false;
 		return true;
 	}	
-
+	
 }

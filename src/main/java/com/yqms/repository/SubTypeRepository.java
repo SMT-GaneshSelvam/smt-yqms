@@ -9,6 +9,6 @@ import com.yqms.model.SubTypeIdentity;
 
 public interface SubTypeRepository extends JpaRepository<SubType, SubTypeIdentity> {
 	
-	List<SubType> findBySubTypeIdentityTypeIdIn(List<String> typeList);
+	List<SubType> findBySubTypeIdentityTypeRefIn(List<String> typeList);
 
 }

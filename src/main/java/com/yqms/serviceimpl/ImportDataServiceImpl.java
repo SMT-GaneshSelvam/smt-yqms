@@ -38,6 +38,7 @@ public class ImportDataServiceImpl implements ImportDataService {
 		}
 
 		List<String> importColumns = Arrays.asList(importMaster.get().getImportColumns().split(","));
+		List<String> importPrimaryKeys = Arrays.asList(importMaster.get().getImportPrimaryKeys().split(","));
 
 		Set<String> importColumnsRequest = data.get(0).keySet();		
 		
@@ -49,9 +50,11 @@ public class ImportDataServiceImpl implements ImportDataService {
 		if (!new HashSet(importColumns).equals(importColumnsRequest)) {			
 			
 			throw new Exception("Incorrect Columns Imported");
-		}		
+		}
+		
+		String selectString = importColumns.stream().map(s-> "`" + s + "`").collect(Collectors.joining(","));
 
-		List<Object[]> records = importMasterRepository.getRecords(tableName, importMaster.get().getImportColumns());
+		List<Object[]> records = importMasterRepository.getRecords(tableName, selectString);
 
 		for (Map<String,String> importRow : data) {
 
@@ -59,8 +62,25 @@ public class ImportDataServiceImpl implements ImportDataService {
 			Boolean matched = true;
 
 			for (Object[] record : records) {
+				
+				int i=0;
+				Boolean flag=true;
+				
+				for (String primaryKey : importPrimaryKeys) {				
 
-				if (importRow.get(importColumns.get(0)).equalsIgnoreCase(record[0].toString())) {
+					
+					if (!importRow.get(primaryKey.replace("_", " ")).equalsIgnoreCase(record[i].toString())) {
+						
+						flag = false;
+						
+					}
+					
+					i++;
+					
+				}
+				
+
+				if (flag) {
 
 					recordExist = true;
 
@@ -83,9 +103,22 @@ public class ImportDataServiceImpl implements ImportDataService {
 					}
 
 					if (!matched) {
+						
+						int j=0;
+						
+						String condition="";
+						
+						for (String primaryKey : importPrimaryKeys) {		
+
+							condition = condition + "`" + primaryKey + "`"   + "='" + importRow.get(primaryKey.replace("_", " ")).replace("'", "\'") + "' AND ";							
+							j++;
+							
+						}
+						
+						condition = condition.substring(0,condition.length()-4);
 
 						importMasterRepository.updateRecord(tableName,
-								updateColumns.substring(0, updateColumns.length() - 1), importRow.get(importColumns.get(0)));						
+								updateColumns.substring(0, updateColumns.length() - 1), condition);						
 					}
 					
 					break;
@@ -101,8 +134,8 @@ public class ImportDataServiceImpl implements ImportDataService {
 
 				for (String field : importRow.keySet()) {
 
-					insertColumn = insertColumn + field.replace(" ", "_") + ",";
-					insertValue = insertValue + "'" + importRow.get(field) + "',";
+					insertColumn = insertColumn + "`" + field.replace(" ", "_") + "`" + ",";
+					insertValue = insertValue + "'" + importRow.get(field).replace("'", "\\'") + "',";
 
 				}
 

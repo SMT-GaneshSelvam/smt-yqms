@@ -7,45 +7,37 @@ import javax.persistence.Embeddable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Embeddable
 public class AreaIdentity implements Serializable  {
 
 	@JsonIgnore
-	private String locationId;
+	private String locationRef;
 	
 	@JsonValue
-	private String areaId;
+	private String areaRef;
 
 	public AreaIdentity() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public AreaIdentity(String locationId, String areaId) {
-		this.locationId = locationId;
-		this.areaId = areaId;
-	}
-
-	public String getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(String locationId) {
-		this.locationId = locationId;
-	}
-
-	public String getAreaId() {
-		return areaId;
-	}
-
-	public void setAreaId(String areaId) {
-		this.areaId = areaId;
+	public AreaIdentity(String locationRef, String areaRef) {
+		super();
+		this.locationRef = locationRef;
+		this.areaRef = areaRef;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((areaId == null) ? 0 : areaId.hashCode());
-		result = prime * result + ((locationId == null) ? 0 : locationId.hashCode());
+		result = prime * result + ((areaRef == null) ? 0 : areaRef.hashCode());
+		result = prime * result + ((locationRef == null) ? 0 : locationRef.hashCode());
 		return result;
 	}
 
@@ -58,17 +50,19 @@ public class AreaIdentity implements Serializable  {
 		if (getClass() != obj.getClass())
 			return false;
 		AreaIdentity other = (AreaIdentity) obj;
-		if (areaId == null) {
-			if (other.areaId != null)
+		if (areaRef == null) {
+			if (other.areaRef != null)
 				return false;
-		} else if (!areaId.equals(other.areaId))
+		} else if (!areaRef.equals(other.areaRef))
 			return false;
-		if (locationId == null) {
-			if (other.locationId != null)
+		if (locationRef == null) {
+			if (other.locationRef != null)
 				return false;
-		} else if (!locationId.equals(other.locationId))
+		} else if (!locationRef.equals(other.locationRef))
 			return false;
 		return true;
 	}
+
+	
 
 }

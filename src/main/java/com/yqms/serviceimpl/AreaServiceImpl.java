@@ -19,7 +19,7 @@ public class AreaServiceImpl implements AreaService {
 	@Override
 	public List<Area> getAllAreasForLocation(List<String> locationList) {
 		
-		List<Area> areaList  = areaRepository.findByAreaIdentityLocationIdIn(locationList);	
+		List<Area> areaList  = areaRepository.findByAreaIdentityLocationRefIn(locationList);	
 		return areaList;
 		
 	}

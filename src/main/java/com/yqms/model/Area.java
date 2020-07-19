@@ -6,6 +6,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "area")
 public class Area {
@@ -14,22 +19,7 @@ public class Area {
     @JsonProperty("id")
     private AreaIdentity areaIdentity;
     
-	private String description;
+	private String areaDescription;
 
-	public AreaIdentity getAreaIdentity() {
-		return areaIdentity;
-	}
-
-	public void setAreaIdentity(AreaIdentity areaIdentity) {
-		this.areaIdentity = areaIdentity;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 }

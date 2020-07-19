@@ -19,7 +19,7 @@ public class SubAreaServiceImpl implements SubAreaService {
 	@Override
 	public List<SubArea> getAllSubAreasForLocationAndArea(List<String> locationList, List<String> areaList) {
 
-		List<SubArea> subAreaList  = subAreaRepository.findBySubAreaIdentityLocationIdInAndSubAreaIdentityAreaIdIn(locationList, areaList);	
+		List<SubArea> subAreaList  = subAreaRepository.findBySubAreaIdentityLocationRefInAndSubAreaIdentityAreaRefIn(locationList, areaList);	
 		return subAreaList;
 		
 	}

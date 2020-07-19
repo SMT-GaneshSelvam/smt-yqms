@@ -9,6 +9,6 @@ import com.yqms.model.AreaIdentity;
 
 public interface AreaRepository extends JpaRepository<Area, AreaIdentity> {	
 
-	List<Area> findByAreaIdentityLocationIdIn(List<String> locationList);
+	List<Area> findByAreaIdentityLocationRefIn(List<String> locationList);
 
 }

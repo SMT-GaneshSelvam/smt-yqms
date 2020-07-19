@@ -23,9 +23,9 @@ public class ImportDataRepositoryImpl implements ImportDataRepository{
 	}
 	
 	@Override
-	public int updateRecord(String tableName, String updateColumnsString, String id) {
+	public int updateRecord(String tableName, String updateColumnsString, String condition) {
 		
-        String updateStatement = "UPDATE " + tableName +" SET " + updateColumnsString + " WHERE ID='" + id + "'";
+        String updateStatement = "UPDATE " + tableName +" SET " + updateColumnsString + " WHERE " + condition;
 
         int countUpdated = entityManager.createNativeQuery(updateStatement).executeUpdate();;
 

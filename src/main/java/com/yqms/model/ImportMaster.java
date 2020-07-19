@@ -1,31 +1,24 @@
 package com.yqms.model;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "importMaster")
+@Getter
+@Setter
 public class ImportMaster {
 
 	@Id
 	private String id;
 	private String importColumns;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getImportColumns() {
-		return importColumns;
-	}
-
-	public void setImportColumns(String importColumns) {
-		this.importColumns = importColumns;
-	}
+	private String importPrimaryKeys;
 
 }

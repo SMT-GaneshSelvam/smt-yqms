@@ -7,6 +7,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "subtype")
 public class SubType {
@@ -15,22 +20,8 @@ public class SubType {
     @JsonProperty("id")
     private SubTypeIdentity subTypeIdentity;
     
-	private String description;	
+	private String subtypeDescription;	
 
-	public SubTypeIdentity getSubTypeIdentity() {
-		return subTypeIdentity;
-	}
 
-	public void setSubTypeIdentity(SubTypeIdentity subTypeIdentity) {
-		this.subTypeIdentity = subTypeIdentity;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 }

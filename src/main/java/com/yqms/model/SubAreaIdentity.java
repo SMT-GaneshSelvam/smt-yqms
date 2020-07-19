@@ -7,58 +7,41 @@ import javax.persistence.Embeddable;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
 @Embeddable
 public class SubAreaIdentity implements Serializable  {
 
 	@JsonIgnore
-	private String locationId;
+	private String locationRef;
 	
 	@JsonIgnore
-	private String areaId;
+	private String areaRef;
 	
 	@JsonValue
-	private String subAreaId;
+	private String subareaRef;
 
 	public SubAreaIdentity() {
 	}
 
-	public SubAreaIdentity(String locationId, String areaId, String subAreaId) {
-		this.locationId = locationId;
-		this.areaId = areaId;
-		this.subAreaId = subAreaId;
-	}
-
-	public String getLocationId() {
-		return locationId;
-	}
-
-	public void setLocationId(String locationId) {
-		this.locationId = locationId;
-	}
-
-	public String getAreaId() {
-		return areaId;
-	}
-
-	public void setAreaId(String areaId) {
-		this.areaId = areaId;
-	}
-
-	public String getSubAreaId() {
-		return subAreaId;
-	}
-
-	public void setSubAreaId(String subAreaId) {
-		this.subAreaId = subAreaId;
+	public SubAreaIdentity(String locationRef, String areaRef, String subareaRef) {
+		super();
+		this.locationRef = locationRef;
+		this.areaRef = areaRef;
+		this.subareaRef = subareaRef;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((areaId == null) ? 0 : areaId.hashCode());
-		result = prime * result + ((locationId == null) ? 0 : locationId.hashCode());
-		result = prime * result + ((subAreaId == null) ? 0 : subAreaId.hashCode());
+		result = prime * result + ((areaRef == null) ? 0 : areaRef.hashCode());
+		result = prime * result + ((locationRef == null) ? 0 : locationRef.hashCode());
+		result = prime * result + ((subareaRef == null) ? 0 : subareaRef.hashCode());
 		return result;
 	}
 
@@ -71,22 +54,22 @@ public class SubAreaIdentity implements Serializable  {
 		if (getClass() != obj.getClass())
 			return false;
 		SubAreaIdentity other = (SubAreaIdentity) obj;
-		if (areaId == null) {
-			if (other.areaId != null)
+		if (areaRef == null) {
+			if (other.areaRef != null)
 				return false;
-		} else if (!areaId.equals(other.areaId))
+		} else if (!areaRef.equals(other.areaRef))
 			return false;
-		if (locationId == null) {
-			if (other.locationId != null)
+		if (locationRef == null) {
+			if (other.locationRef != null)
 				return false;
-		} else if (!locationId.equals(other.locationId))
+		} else if (!locationRef.equals(other.locationRef))
 			return false;
-		if (subAreaId == null) {
-			if (other.subAreaId != null)
+		if (subareaRef == null) {
+			if (other.subareaRef != null)
 				return false;
-		} else if (!subAreaId.equals(other.subAreaId))
+		} else if (!subareaRef.equals(other.subareaRef))
 			return false;
 		return true;
-	}
-
+	}	
+	
 }
