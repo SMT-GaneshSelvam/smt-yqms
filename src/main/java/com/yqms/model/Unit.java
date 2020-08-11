@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,8 +17,11 @@ import lombok.Setter;
 public class Unit {
 
 	@Id
-	private String id;
-	private String description;
+    @JsonProperty("id")
+	private String unitRef;
+    @JsonProperty("description")
+	private String unitDescription;
+	private String unitC1;
 	private Boolean imported;
 	private Boolean verified;
 	private String verifiedBy;
@@ -24,7 +29,5 @@ public class Unit {
 	private String verifiedAt;
 	private Boolean underMoC;
 	private Boolean preventAPC;	
-	@Column(name="unit_C1")
-	private String unitC1;
 	
 }

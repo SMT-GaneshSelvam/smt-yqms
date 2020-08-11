@@ -1,6 +1,6 @@
 package com.yqms.serviceimpl;
 
-import java.util.ArrayList;
+import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +23,12 @@ public class ImportDataServiceImpl implements ImportDataService {
 
 	@Autowired
 	ImportMasterRepository importMasterRepository;
+	
+	@Override
+	public Integer getRecordsCount(String table) {
+		return importMasterRepository.getRecordsCount(table);
+	}
+	
 
 	@Override
 	@Transactional
@@ -135,7 +141,7 @@ public class ImportDataServiceImpl implements ImportDataService {
 				for (String field : importRow.keySet()) {
 
 					insertColumn = insertColumn + "`" + field.replace(" ", "_") + "`" + ",";
-					insertValue = insertValue + "'" + importRow.get(field).replace("'", "\\'") + "',";
+					insertValue = insertValue + "'" + importRow.get(field) + "',";
 
 				}
 

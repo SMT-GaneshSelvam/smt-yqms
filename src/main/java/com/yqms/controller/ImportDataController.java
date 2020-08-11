@@ -30,5 +30,13 @@ public class ImportDataController {
 		return new ResponseEntity<>(importDataReturned, HttpStatus.OK);
 		
 	}
+	
+	@RequestMapping(value = "/{table}", method = RequestMethod.GET)
+	public ResponseEntity<Integer> getRecordsCount(@PathVariable String table) throws Exception {
+		
+		Integer count= importDataService.getRecordsCount(table);
+		return new ResponseEntity<>(count, HttpStatus.OK);
+		
+	}
 
 }

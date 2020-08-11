@@ -23,5 +23,13 @@ public class SystemServiceImpl implements SystemService {
 		return systemList;
 		
 	}
+	
+	@Override
+	public List<System> getSystemsByUnit(List<String> unitRef ) {
+
+		List<System> systemList  = systemRepository.findBySystemIdentityUnitRefIn(unitRef);		
+		return systemList;
+		
+	}
 
 }

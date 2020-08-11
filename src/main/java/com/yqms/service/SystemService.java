@@ -7,5 +7,7 @@ import com.yqms.model.System;
 public interface SystemService {	
 	
 	List<System> getAllSystems();
+	
+	List<System> getSystemsByUnit(List<String> unitRef);
 
 }

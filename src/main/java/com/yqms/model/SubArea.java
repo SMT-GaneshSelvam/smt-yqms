@@ -19,6 +19,7 @@ public class SubArea {
     @EmbeddedId
     @JsonProperty("id")
     private SubAreaIdentity subAreaIdentity;
+    @JsonProperty("description")
 	private String subareaDescription;
 
 }

@@ -22,9 +22,9 @@ public class SubSystemController {
 	private SubSystemService subSystemService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<List<SubSystem>> getAllSubSystemsForSystem(@RequestParam List<String> systemList) {
+	public ResponseEntity<List<SubSystem>> getAllSubSystemsForSystem(@RequestParam List<String> unitRef, @RequestParam List<String> systemRef) {
 				
-		List<SubSystem> subSystemList = subSystemService.getAllSubSystemsForSystem(systemList);
+		List<SubSystem> subSystemList = subSystemService.getAllSubSystemsForSystem(unitRef, systemRef);
 		return new ResponseEntity<>(subSystemList, HttpStatus.OK);
 		
 	}

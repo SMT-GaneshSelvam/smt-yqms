@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +18,9 @@ import lombok.Setter;
 public class Location {
 
 	@Id
+    @JsonProperty("id")
 	private String locationRef;
+    @JsonProperty("description")
 	private String locationDescription;
 	private Date addedAt;
 	private String addedBy;

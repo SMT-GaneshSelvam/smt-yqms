@@ -19,7 +19,7 @@ public class SubType {
     @EmbeddedId
     @JsonProperty("id")
     private SubTypeIdentity subTypeIdentity;
-    
+    @JsonProperty("description")
 	private String subtypeDescription;	
 
 

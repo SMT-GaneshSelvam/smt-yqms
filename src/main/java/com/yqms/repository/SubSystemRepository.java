@@ -9,6 +9,6 @@ import com.yqms.model.SubSystemIdentity;
 
 public interface SubSystemRepository extends JpaRepository<SubSystem, SubSystemIdentity> {	
 
-	List<SubSystem> findBySubSystemIdentitySystemIdIn(List<String> systemId);
+	List<SubSystem> findBySubSystemIdentityUnitRefInAndSubSystemIdentitySystemRefIn(List<String> unitRef, List<String> systemRef);
 
 }

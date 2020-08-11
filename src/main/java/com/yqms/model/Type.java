@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +16,9 @@ import lombok.Setter;
 public class Type {
 
 	@Id
+    @JsonProperty("id")
 	private String typeRef;
+    @JsonProperty("description")
 	private String typeDescription;
 
 }

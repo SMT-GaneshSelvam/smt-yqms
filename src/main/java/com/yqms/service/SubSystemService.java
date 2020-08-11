@@ -6,6 +6,6 @@ import com.yqms.model.SubSystem;
 
 public interface SubSystemService {	
 	
-	List<SubSystem> getAllSubSystemsForSystem(List<String> systemList);
+	List<SubSystem> getAllSubSystemsForSystem(List<String> unitRef, List<String> systemRef);
 
 }

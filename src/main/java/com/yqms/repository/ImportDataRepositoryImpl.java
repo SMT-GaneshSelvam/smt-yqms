@@ -11,6 +11,16 @@ public class ImportDataRepositoryImpl implements ImportDataRepository{
 	
     @PersistenceContext
     private EntityManager entityManager;
+    
+	@Override
+	public Integer getRecordsCount(String tableName) {
+		
+        String selectStatement = "SELECT COUNT(*) FROM " + tableName;
+
+        Query query = entityManager.createNativeQuery(selectStatement);
+
+        return Integer.valueOf(query.getSingleResult().toString());
+	}
 
 	@Override
 	public List<Object[]> getRecords(String tableName, String columns) {

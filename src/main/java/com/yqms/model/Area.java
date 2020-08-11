@@ -18,7 +18,7 @@ public class Area {
     @EmbeddedId
     @JsonProperty("id")
     private AreaIdentity areaIdentity;
-    
+    @JsonProperty("description")
 	private String areaDescription;
 
 

@@ -4,28 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
-@Table(name = "checksheetref")
+@Table(name = "checksheet_master")
+@Getter
+@Setter
 public class CheckSheetRef {
 
 	@Id
-	private String id;
-	private String description;
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @JsonProperty("id")
+	private String checksheetName;
+    @JsonProperty("description")
+	private String checksheetDescription;
 
 }
