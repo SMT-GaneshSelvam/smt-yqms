@@ -8,4 +8,6 @@ public interface ImportDataService {
 
 	Integer getRecordsCount(String table);
 	
+	Integer deleteRecords(String table);
+	
 }

@@ -38,5 +38,13 @@ public class ImportDataController {
 		return new ResponseEntity<>(count, HttpStatus.OK);
 		
 	}
+	
+	@RequestMapping(value = "/{table}", method = RequestMethod.DELETE)
+	public ResponseEntity<Integer> deleteRecords(@PathVariable String table) throws Exception {
+		
+		Integer count= importDataService.deleteRecords(table);
+		return new ResponseEntity<>(count, HttpStatus.OK);
+		
+	}
 
 }

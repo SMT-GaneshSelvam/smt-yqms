@@ -11,5 +11,7 @@ public interface ImportDataRepository {
 	int addRecord(String tableName, String insertColumnString, String insertValueString);
 
 	Integer getRecordsCount(String tableName);
+	
+	Integer deleteRecords(String tableName);
 
 }

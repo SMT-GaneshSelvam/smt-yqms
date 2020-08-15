@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.transaction.annotation.Transactional;
+
 
 public class ImportDataRepositoryImpl implements ImportDataRepository{
 	
@@ -20,6 +22,17 @@ public class ImportDataRepositoryImpl implements ImportDataRepository{
         Query query = entityManager.createNativeQuery(selectStatement);
 
         return Integer.valueOf(query.getSingleResult().toString());
+	}
+	
+	@Override
+	@Transactional
+	public Integer deleteRecords(String tableName) {
+		
+        String deleteStatement = "DELETE FROM " + tableName;
+
+        Query query = entityManager.createNativeQuery(deleteStatement);
+
+        return Integer.valueOf(query.executeUpdate());
 	}
 
 	@Override

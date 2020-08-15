@@ -2,6 +2,7 @@ package com.yqms.serviceimpl;
 
 import java.net.URLEncoder;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -20,15 +21,41 @@ import com.yqms.service.ImportDataService;
 
 @Service
 public class ImportDataServiceImpl implements ImportDataService {
+	
+	static Map<String, String> table_map = new HashMap<String, String>();
+	
+	static {
+		table_map.put("UNITS", "UNIT");
+		table_map.put("SYSTEMS", "SYSTEM_TABLE");
+		table_map.put("SUBSYSTEMS", "SUBSYSTEM");
+		table_map.put("LOCATIONS", "LOCATION");
+		table_map.put("AREAS", "AREA");
+		table_map.put("SUBAREAS", "SUBAREA");
+		table_map.put("TYPES", "TYPE");
+		table_map.put("SUB TYPES", "SUBTYPE");
+		table_map.put("TAGS", "TAG");
+		table_map.put("TAGS CUSTOM DATA", "TAGCUSTOMDATA");		
+		table_map.put("TAG COMPONENTS", "TAGCOMPONENT");	
+		table_map.put("CHECKSHEET MASTERS", "CHECKSHEET_MASTER");	
+		table_map.put("CHECK MATRIX", "CHECKSHEET_MATRIX");	
+		table_map.put("RESPONSIBLE GROUPS", "RESPONSIBLE_GROUP");	
+		table_map.put("RESPONSIBLE PEOPLE", "RESPONSIBLE_PEOPLE");	
+		
+	}
+	
 
 	@Autowired
 	ImportMasterRepository importMasterRepository;
 	
 	@Override
 	public Integer getRecordsCount(String table) {
-		return importMasterRepository.getRecordsCount(table);
+		return importMasterRepository.getRecordsCount(table_map.get(table.toUpperCase()));
 	}
 	
+	@Override
+	public Integer deleteRecords(String table) {
+		return importMasterRepository.deleteRecords(table_map.get(table.toUpperCase()));
+	}
 
 	@Override
 	@Transactional
