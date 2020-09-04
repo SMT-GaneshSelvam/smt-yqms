@@ -1,6 +1,5 @@
 package com.yqms.serviceimpl;
 
-import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,6 +39,8 @@ public class ImportDataServiceImpl implements ImportDataService {
 		table_map.put("CHECK MATRIX", "CHECKSHEET_MATRIX");	
 		table_map.put("RESPONSIBLE GROUPS", "RESPONSIBLE_GROUP");	
 		table_map.put("RESPONSIBLE PEOPLE", "RESPONSIBLE_PEOPLE");	
+		table_map.put("CHECKSHEET ITEMS", "CHECKSHEET_ITEM");	
+		
 		
 	}
 	
