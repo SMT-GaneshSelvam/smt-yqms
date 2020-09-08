@@ -14,7 +14,7 @@ import com.yqms.model.PunchListItem;
 import com.yqms.service.PunchListItemService;
 
 @RestController
-@RequestMapping(value = "/checkSheetItem")
+@RequestMapping(value = "/punchListItem")
 public class PunchListItemController {
 	
 	@Autowired
